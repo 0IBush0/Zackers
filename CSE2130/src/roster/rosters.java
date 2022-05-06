@@ -23,8 +23,8 @@ public class rosters
 		String firstName, lastName;
 		int stuNum;
 		Double stuAmount;
-
-		System.out.print("Enter the name of the test file:");
+		//create variables
+		System.out.print("Enter the name of the test file:");//stuname.txt
 		fileName = input.nextLine();
 		System.out.println("How Many Students?");
 		stuNum = input.nextInt();
@@ -48,7 +48,7 @@ public class rosters
 			writeStu.close();
 
 			System.out.println("Data has been written to file.");
-
+			//display success message
 			FileInputStream in1 = new FileInputStream(textFile);
 			ObjectInputStream readStu = new ObjectInputStream(in1);
 
@@ -65,13 +65,13 @@ public class rosters
 		{
 			System.out.println("File does not exist!");
 			System.err.println("FileNotFoundException: "+ e.getMessage());
-			
+			//display error message
 		}
 		catch(IOException e)
 		{
 			System.out.println("Problem reading file.");
 			System.err.println("IOException: "+ e.getMessage());
-			
+			//display error message
 		} 
 		catch (ClassNotFoundException e)
 		{
@@ -85,6 +85,20 @@ public class rosters
 
 /* Screen Dump
 
+Enter the name of the test file:stuname.txt
+How Many Students?
+2
+Enter Student First Name
+Zac
+Enter Student Last Name
+At
+Enter Student First Name
+Bob
+Enter Student Last Name
+Bee
+Data has been written to file.
+Zac At
+Bob Bee
 
 
 
