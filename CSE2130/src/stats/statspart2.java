@@ -14,109 +14,117 @@ import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class statspart2
-{
 
+{
 	public static void main(String[] args)
+
 	{
-		Scanner input = new Scanner(System.in);
-			
-		File dataFile; 
+		File dataFile;
 		FileWriter out;
 		FileReader in;
 		BufferedWriter writeFile;
 		BufferedReader readFile;
-			
+		
+		Scanner input = new Scanner(System.in);
+		NumberFormat num = NumberFormat.getPercentInstance();
 		String StuName;
 		String Score;
 		String fileName;
-		double ScorValue = 0;
-		double LowScore = 100;
-		double HigScore = 0;
-		double AveScore = 0;
-		double TotScore = 0;
+		double scorValue = 0;
+		double lowScore = 100;
+		double higScore = 0;
+		double AvgScore = 0;
+		double totalScore = 0;
 		int numScores = 0;
-		int studentNum;
-		//declare variables
-			
-		System.out.print("Please enter file name: ");
+		int StuNum;
+
+		System.out.print("Enter the name Of The File: ");//grades.txt
 		fileName = input.next();
-		//prompt for file name
-		System.out.print("Please enter the number Of Students: ");
-		studentNum = input.nextInt();
-		//store number of students
+
+		System.out.print("Enter The Number Of Students: ");
+		StuNum = input.nextInt();
+
 		try
 		{
 			dataFile = new File(fileName);
 			out = new FileWriter(dataFile);
 			writeFile = new BufferedWriter(out);
-				
-			for (int i = 0; i < studentNum; i++)
-			{	
-				System.out.print("Please enter Student Name: ");
+
+			for (int i = 0; i < StuNum; i++)
+			{
+				System.out.print("Enter Student Name: ");
 				StuName = input.next();
-				System.out.print("Please enter their test Score: ");
+
+				System.out.print("*Note the Test Grade is Out of 1, ");
+				System.out.print("Enter Test Score: ");
 				Score = input.next();
-				//store user inputs
+
 				writeFile.write(StuName);
+				writeFile.newLine();
+
+				writeFile.write(String.valueOf(Score));
 				writeFile.newLine();
 				
 			}
+			
 			writeFile.close();
-			System.out.println("File has been changed to the written value");
-			//rewritten message
+			out.close();
+			System.out.println("Data Written To File.");
+
 		}
-		catch (IOException e)
-		{
-			System.out.println("A problem has occured with writing the file.");
+			catch (IOException e)
+			{
+			System.out.println("Problem Writing To File.");
 			System.err.println("IOException: " + e.getMessage());
-			//check for exceptions
-		}
-		try
-		{
-			dataFile = new File(fileName);
-			in = new FileReader(dataFile);
-			readFile = new BufferedReader(in);
-			
-		while((StuName = readFile.readLine()) != null)
-		{			    	
-			Score = readFile.readLine();
-			System.out.println(StuName + " " + Score);
-			numScores += 1;
-			ScorValue = Double.parseDouble(Score);
-			TotScore += ScorValue;
-					
-			if(ScorValue < LowScore)
-			{
-				LowScore = ScorValue;
-				//check for score value
+
 			}
-			else if(ScorValue > HigScore)
+			try
 			{
-				HigScore = ScorValue;
-				//check for score value
-			}
-			
-		}
-			
-			AveScore = TotScore / numScores;
-			//formula for average score
-			NumberFormat NF = NumberFormat.getPercentInstance();
-			//select format
-			System.out.println("The lowest score is: " + NF.format(LowScore));
-			System.out.println("The highest score is: " + NF.format(HigScore));
-			System.out.println("The average score is: " + NF.format(AveScore));
-			//print out all scores
+				dataFile = new File(fileName);
+				in = new FileReader(dataFile);
+			    readFile = new BufferedReader(in);
+
+			    while((StuName = readFile.readLine()) != null)
+			  	{
+			    	Score = readFile.readLine();
+			    	System.out.println(StuName + " " + Score);
+			    	
+			    	numScores += 1;
+			    	scorValue = Double.parseDouble(Score);
+			    	totalScore += scorValue;
 				
+			    	numScores += 1;
+			    	totalScore += scorValue;
+			    
+			    if(scorValue < lowScore)
+				{
+				     lowScore = scorValue;
+				     
+				}
+			    if(scorValue > higScore)
+				{
+				     higScore = scorValue;
+				     
+				}   
+			  	}
+
+			    AvgScore = totalScore / numScores;
+
+			    System.out.println("Lowest Score: " + num.format(lowScore));
+			    System.out.println("Highest Score: " + num.format(higScore));
+			    System.out.println("Average Score: " + num.format(AvgScore));
+		
 		}
 		catch (IOException e)
 		{
-				System.out.println("A problem has occured with rewriting the file.");
-				System.err.println("IOException: " + e.getMessage());
-				//send error message
-		}
+			System.out.println("A problem has occured while writing the file.");
+			System.err.println("IOException: " + e.getMessage());
 			
 		}
+
 	}
+
+}
 
 /* Screen Dump
 
