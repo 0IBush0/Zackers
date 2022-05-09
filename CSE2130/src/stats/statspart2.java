@@ -1,5 +1,5 @@
 /*
-Program: statspart2.java          Last Date of this Revision: May 2, 2022
+Program: statspart2.java          Last Date of this Revision: May 6, 2022
 Purpose: Stats P2
 Author: Zac Qiu
 School: CHHS
@@ -30,6 +30,7 @@ public class statspart2
 		String StuName;
 		String Score;
 		String fileName;
+		
 		double scorValue = 0;
 		double lowScore = 100;
 		double higScore = 0;
@@ -37,11 +38,11 @@ public class statspart2
 		double totalScore = 0;
 		int numScores = 0;
 		int StuNum;
-
-		System.out.print("Enter the name Of The File: ");//grades.txt
+		//create variables
+		
+		System.out.print("Please enter the name Of The File: ");//grades.txt
 		fileName = input.next();
-
-		System.out.print("Enter The Number Of Students: ");
+		System.out.print("Please enter the number Of Students: ");
 		StuNum = input.nextInt();
 
 		try
@@ -52,11 +53,11 @@ public class statspart2
 
 			for (int i = 0; i < StuNum; i++)
 			{
-				System.out.print("Enter Student Name: ");
+				System.out.print("Please enter Student Name: ");
 				StuName = input.next();
 
-				System.out.print("*Note the Test Grade is Out of 1, ");
-				System.out.print("Enter Test Score: ");
+				System.out.print("(The Score is out of 1, please use decimals!)");//1 will be 100%, 0.1 will be 10%
+				System.out.print("Please enter the test score: ");
 				Score = input.next();
 
 				writeFile.write(StuName);
@@ -69,14 +70,14 @@ public class statspart2
 			
 			writeFile.close();
 			out.close();
-			System.out.println("Data Written To File.");
+			System.out.println("Data has written to file.");
 
 		}
 			catch (IOException e)
 			{
-			System.out.println("Problem Writing To File.");
+			System.out.println("A problem has occured while writing the file.");
 			System.err.println("IOException: " + e.getMessage());
-
+			//display error message
 			}
 			try
 			{
@@ -99,27 +100,27 @@ public class statspart2
 			    if(scorValue < lowScore)
 				{
 				     lowScore = scorValue;
-				     
+				     //store value
 				}
 			    if(scorValue > higScore)
 				{
 				     higScore = scorValue;
-				     
+				     //store value
 				}   
 			  	}
 
 			    AvgScore = totalScore / numScores;
 
-			    System.out.println("Lowest Score: " + num.format(lowScore));
-			    System.out.println("Highest Score: " + num.format(higScore));
-			    System.out.println("Average Score: " + num.format(AvgScore));
-		
+			    System.out.println("The lowest score is: " + num.format(lowScore));
+			    System.out.println("The highest score is: " + num.format(higScore));
+			    System.out.println("The average score is: " + num.format(AvgScore));
+			    //display scores
 		}
 		catch (IOException e)
 		{
 			System.out.println("A problem has occured while writing the file.");
 			System.err.println("IOException: " + e.getMessage());
-			
+			//display error message
 		}
 
 	}
