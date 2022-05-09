@@ -129,7 +129,21 @@ public class statspart2
 
 /* Screen Dump
 
-
+Please enter the name Of The File: grades.txt
+Please enter the number Of Students: 3
+Please enter Student Name: John
+(The Score is out of 1, please use decimals!)Please enter the test score: .2
+Please enter Student Name: Joe
+(The Score is out of 1, please use decimals!)Please enter the test score: .8
+Please enter Student Name: Justin
+(The Score is out of 1, please use decimals!)Please enter the test score: .6
+Data has written to file.
+John .2
+Joe .8
+Justin .6
+The lowest score is: 20%
+The highest score is: 80%
+The average score is: 53%
 
 
  */
