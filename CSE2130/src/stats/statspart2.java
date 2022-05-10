@@ -42,9 +42,9 @@ public class statspart2
 		
 		System.out.print("Please enter the name Of The File: ");//grades.txt
 		fileName = input.next();
-		System.out.print("Please enter the number Of Students: ");
+		System.out.print("Please enter the number Of students: ");
 		StuNum = input.nextInt();
-
+		//prompt for number of students
 		try
 		{
 			dataFile = new File(fileName);
