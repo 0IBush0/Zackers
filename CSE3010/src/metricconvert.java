@@ -1,3 +1,4 @@
+package guis;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -12,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 
-public class metricconversion {
+public class metricconvert {
 
 	private JFrame frame;
 
@@ -23,7 +24,7 @@ public class metricconversion {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() { 
 				try {
-					metricconversion window = new metricconversion();
+					metricconvert window = new metricconvert();
 					window.frame.setVisible(true);
 				} catch (Exception e) { 
 					e.printStackTrace();
@@ -34,7 +35,7 @@ public class metricconversion {
 	/**
 	 * Create the application.
 	 */
-	public metricconversion() {
+	public metricconvert() {
 		initialize();
 	}
 
@@ -98,4 +99,3 @@ public class metricconversion {
 
 	}
 }
-
